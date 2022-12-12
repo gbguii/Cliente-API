@@ -58,7 +58,7 @@ public class ClienteController {
 	@DeleteMapping("/{id}")
 	public void deleteCliente(@PathVariable("id") Long id) {
 		Cliente toDelete = clienteRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+				.orElse(null);
 		clienteRepository.delete(toDelete);
 	}
 	
